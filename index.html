@@ -240,11 +240,6 @@
   }
   .course-notes li.warn .ico { color: var(--blaze); }
 
-  .letter {
-    margin-top: 44px;
-    padding-top: 36px;
-    border-top: 2px solid var(--panel-border);
-  }
   .letter .signoff {
     margin-top: 28px;
     font-family: var(--font-display);
@@ -290,6 +285,7 @@
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-swim" id="tab-swim">Swim</button>
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-bike" id="tab-bike">Bike</button>
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-run" id="tab-run">Run</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-letter" id="tab-letter">Welcome Letter</button>
   </div>
 </nav>
 
@@ -298,17 +294,15 @@
   <!-- HOME -->
   <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
     <div class="hero">
-      <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of pine trees along a lake shoreline">
-        <rect x="0" y="0" width="480" height="160" fill="none"/>
-        <path d="M0,120 C60,108 110,128 180,116 C260,102 320,124 480,110 L480,160 L0,160 Z" fill="var(--lake)" opacity="0.85"/>
-        <path d="M0,132 C70,122 140,138 220,128 C300,120 360,136 480,126 L480,160 L0,160 Z" fill="var(--lake)" opacity="0.55"/>
+      <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of Island Lake&#39;s shoreline traced from the DNR survey map, flanked by pine trees, with a marker at the Lodge">
         <g fill="var(--pine)">
-          <path d="M60,120 L78,120 L69,96 L82,96 L70,74 L82,74 L69,52 L56,74 L68,74 L56,96 L69,96 Z"/>
-          <path d="M120,120 L146,120 L132,88 L150,88 L131,58 L149,58 L131,30 L113,58 L131,58 L112,88 L130,88 Z"/>
-          <path d="M340,120 L360,120 L349,94 L363,94 L350,70 L362,70 L349,46 L336,70 L348,70 L335,94 L349,94 Z"/>
-          <path d="M400,120 L424,120 L410,90 L426,90 L409,62 L425,62 L409,36 L392,62 L408,62 L391,90 L407,90 Z"/>
+          <path d="M30,190 L48,190 L39,166 L52,166 L40,144 L52,144 L39,122 L26,144 L38,144 L26,166 L39,166 Z"/>
+          <path d="M70,200 L96,200 L82,168 L100,168 L81,138 L99,138 L81,110 L63,138 L81,138 L62,168 L80,168 Z"/>
+          <path d="M400,195 L420,195 L409,169 L425,169 L408,145 L424,145 L408,119 L391,145 L407,145 L390,169 L406,169 Z"/>
+          <path d="M440,205 L458,205 L448,182 L462,182 L447,160 L461,160 L447,138 L432,160 L446,160 L431,182 L445,182 Z"/>
         </g>
-        <circle cx="240" cy="34" r="16" fill="var(--blaze)"/>
+        <path d="M225.8,8.0 C215.1,9.6 188.5,17.6 178.3,21.5 C168.1,25.4 167.4,27.7 164.6,31.4 C161.9,35.1 159.2,31.6 162.0,43.6 C164.8,55.5 172.1,87.3 181.2,103.1 C190.2,118.9 209.5,133.3 216.1,138.4 C222.8,143.5 220.6,138.0 221.2,133.7 C221.8,129.4 218.8,119.0 220.0,112.3 C221.2,105.6 224.1,100.4 228.4,93.4 C232.7,86.4 240.4,74.6 245.1,68.8 C249.9,63.0 253.0,62.2 254.6,60.5 C256.2,58.8 251.9,58.3 253.6,57.4 C255.4,56.4 262.6,55.0 264.8,55.5 C267.1,56.0 269.6,53.7 267.0,60.5 C264.4,67.3 253.2,89.2 250.4,96.1 C247.6,103.0 249.5,100.1 251.0,103.5 C252.5,106.8 259.4,111.1 259.0,116.5 C258.7,122.0 250.5,130.2 248.5,136.5 C246.5,142.8 249.3,151.4 246.3,155.0 C243.3,158.5 235.1,158.9 230.2,157.7 C225.3,156.5 219.4,148.6 215.8,148.3 C212.2,147.9 209.2,153.4 208.1,155.1 C207.0,156.8 208.1,157.9 209.3,158.7 C210.6,159.5 216.0,157.0 215.7,160.2 C215.3,163.4 208.5,173.7 207.4,177.7 C206.3,181.8 209.4,183.7 209.1,185.4 C208.9,187.2 205.7,186.8 205.7,188.5 C205.6,190.2 206.1,192.3 208.5,195.1 C210.9,198.0 215.7,203.4 219.9,206.1 C224.2,208.8 232.0,211.4 235.3,211.7 C238.6,212.0 239.2,207.5 240.3,207.6 C241.4,207.6 239.0,213.5 241.5,212.2 C244.0,211.0 248.5,204.6 255.0,200.9 C261.6,197.2 274.5,193.2 280.4,190.0 C286.4,186.8 289.7,189.7 291.9,181.8 C294.1,173.9 293.9,151.7 293.5,142.7 C293.2,133.6 287.4,131.3 289.7,127.1 C292.0,122.8 303.4,123.0 307.4,116.5 C311.4,110.0 311.9,105.1 313.1,100.2 C314.3,95.4 318.1,91.7 315.0,84.4 C311.9,77.1 299.5,66.7 294.6,59.1 C289.6,51.5 286.5,40.2 284.1,36.2 C281.7,32.1 281.6,34.4 280.5,34.4 C279.5,34.4 278.1,37.0 277.5,36.6 C277.0,36.2 283.0,36.4 276.7,32.6 C270.5,28.6 248.4,15.7 239.5,11.8 C230.6,7.9 233.6,6.2 225.8,8.0 Z" fill="var(--lake)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="211.5" cy="151.4" r="5" fill="var(--blaze)" stroke="var(--ink)" stroke-width="1"/>
       </svg>
       <div>
         <h1>The Only Island Triathlon in the World:<br>Deep in the Northwoods of Wisconsin</h1>
@@ -347,7 +341,7 @@
 
     <div class="card">
       <h2>Getting there &amp; packet pickup</h2>
-      <p>Island Lake Lodge is located at 1995 Island Lake Lodge, a few minutes away from downtown Barnes, WI. Packet pickup is available Friday night. The Lodge itself is completely full, but campsites are available on a first-come, first-served basis. Parking is available all weekend at the Lodge.</p>
+      <p>Island Lake Lodge is located at 1995 Island Lake Road, a few minutes away from downtown Barnes, WI. Packet pickup is available Friday night. The Lodge itself is completely full, but campsites are available on a first-come, first-served basis. Parking is available all weekend at the Lodge.</p>
     </div>
 
     <div class="grid-two">
@@ -361,34 +355,6 @@
       </div>
     </div>
 
-    <div class="letter">
-      <h2>Letter from the Race Director</h2>
-      <p>Welcome to the inaugural Island Lake Triathlon!</p>
-      <p>Whether you are here to claim cabin bragging rights, chase a segment crown, or simply enjoy a morning of sweat and lake air, we could not be more thrilled to kick off this weekend together. The course is set, the water is waiting, and the competition is shaping up to be legendary.</p>
-
-      <h3>The Contenders: An Absolutely Cracked Field</h3>
-      <p>Our inaugural starting line features a little bit of everything: seasoned endurance royalty, marathon tune-ups, and wild cards with mysterious training regimens.</p>
-      <p><b>The Veteran Frontrunners:</b> Josh Overturf leads the pack into the water, riding high on a recent PR at Ironman 70.3 Madison. Keep your eyes peeled for four Twin Cities Marathon hopefuls tuning their legs for next weekend.</p>
-      <p><b>The Dark Horses and Strategists:</b> Max Tweedale enters following an injury-riddled training block and an alleged all-time low VO2 max. Despite a respectable 5th place at the Trail Loppet Half, rumors confirm Max is saving his legs to contest the coveted Accola Loop segment rather than the overall podium. Meanwhile, newcomers Chris and Stuart arrive looking to turn heads and make an immediate statement.</p>
-      <p><b>The Women's Field:</b> Bridget Greiber, multi-70.3 Ironman extraordinaire, steps onto the dock as the heavy favorite. Ready to hunt her down are Dexcom Warriors Alison Accola and Emily Gruen, who plan to push the pace from gun to tape as they prepare for the upcoming winter cross-country ski season.</p>
-      <p><b>The Mystery Duo:</b> The Coquyt couple represents the true wild card of the weekend. Nobody has spotted their workouts as they are "Strava Silent," though whispers claim they spent the entire summer hammering two-a-day sessions on the steep grades of Afton Alps.</p>
-      <p><b>The Kids Triathlon:</b> Looking to steal the spotlight, Cal and Rosie are locked in an absolute barnburner of a head-to-head race. Expect fireworks from start to finish.</p>
-
-      <h3>Course &amp; Safety Notes</h3>
-      <p>While bragging rights are permanent, safety remains priority number one:</p>
-      <p><b>Swim:</b> Floatation aids are always welcome if needed. No one wins the race on the swim, so be careful.</p>
-      <p><b>Bike:</b> Helmets are strictly mandatory before your bike leaves the rack. Ride defensively, yield to oncoming traffic, and take corners with respect — there is loose gravel.</p>
-      <p><b>Run:</b> Stay hydrated, and give a loud cheer whenever you pass another competitor.</p>
-
-      <h3>A Huge Thank You to Our Volunteers</h3>
-      <p>A race like this cannot happen without our incredible volunteer crew. Thank you to Alison Accola for leading our volunteer crew and making sure everything was ready for the weekend. When you pass a volunteer on the course, be sure to offer a high five and a thank you!</p>
-
-      <h3>Post-Race Festivities</h3>
-      <p>Remember: across all divisions, the main objective of this weekend is having fun and making memories with great friends.</p>
-      <p>Immediately following the podium ceremony, the cabin kitchen and grill will be open and there will be a lasagna dinner celebration. Stick around for cold drinks, post-race food, lawn games, and race recap banter around the fire.</p>
-      <p>Race hard, look out for one another, and we will see you at the starting line!</p>
-      <p class="signoff">Isaac Accola<br>Race Director, Island Lake Triathlon</p>
-    </div>
   </section>
 
   <!-- SWIM -->
@@ -443,6 +409,36 @@
     </div>
   </section>
 
+  <!-- LETTER -->
+  <section class="panel letter" id="panel-letter" role="tabpanel" aria-labelledby="tab-letter" hidden>
+    <h1>Letter from the Race Director</h1>
+    <p>Welcome to the inaugural Island Lake Triathlon!</p>
+    <p>Whether you are here to claim cabin bragging rights, chase a segment crown, or simply enjoy a morning of sweat and lake air, we could not be more thrilled to kick off this weekend together. The course is set, the water is waiting, and the competition is shaping up to be legendary.</p>
+
+    <h2>The Contenders: An Absolutely Cracked Field</h2>
+    <p>Our inaugural starting line features a little bit of everything: seasoned endurance royalty, marathon tune-ups, and wild cards with mysterious training regimens.</p>
+    <p><b>The Veteran Frontrunners:</b> Josh Overturf leads the pack into the water, riding high on a recent PR at Ironman 70.3 Madison. Keep your eyes peeled for four Twin Cities Marathon hopefuls tuning their legs for next weekend.</p>
+    <p><b>The Dark Horses and Strategists:</b> Max Tweedale enters following an injury-riddled training block and an alleged all-time low VO2 max. Despite a respectable 5th place at the Trail Loppet Half, rumors confirm Max is saving his legs to contest the coveted Accola Loop segment rather than the overall podium. Meanwhile, newcomers Chris and Stuart arrive looking to turn heads and make an immediate statement.</p>
+    <p><b>The Women's Field:</b> Bridget Greiber, multi-70.3 Ironman extraordinaire, steps onto the dock as the heavy favorite. Ready to hunt her down are Dexcom Warriors Alison Accola and Emily Gruen, who plan to push the pace from gun to tape as they prepare for the upcoming winter cross-country ski season.</p>
+    <p><b>The Mystery Duo:</b> The Coquyt couple represents the true wild card of the weekend. Nobody has spotted their workouts as they are "Strava Silent," though whispers claim they spent the entire summer hammering two-a-day sessions on the steep grades of Afton Alps.</p>
+    <p><b>The Kids Triathlon:</b> Looking to steal the spotlight, Cal and Rosie are locked in an absolute barnburner of a head-to-head race. Expect fireworks from start to finish.</p>
+
+    <h2>Course &amp; Safety Notes</h2>
+    <p>While bragging rights are permanent, safety remains priority number one:</p>
+    <p><b>Swim:</b> Floatation aids are always welcome if needed. No one wins the race on the swim, so be careful.</p>
+    <p><b>Bike:</b> Helmets are strictly mandatory before your bike leaves the rack. Ride defensively, yield to oncoming traffic, and take corners with respect — there is loose gravel.</p>
+    <p><b>Run:</b> Stay hydrated, and give a loud cheer whenever you pass another competitor.</p>
+
+    <h2>A Huge Thank You to Our Volunteers</h2>
+    <p>A race like this cannot happen without our incredible volunteer crew. Thank you to Alison Accola for leading our volunteer crew and making sure everything was ready for the weekend. When you pass a volunteer on the course, be sure to offer a high five and a thank you!</p>
+
+    <h2>Post-Race Festivities</h2>
+    <p>Remember: across all divisions, the main objective of this weekend is having fun and making memories with great friends.</p>
+    <p>Immediately following the podium ceremony, the cabin kitchen and grill will be open and there will be a lasagna dinner celebration. Stick around for cold drinks, post-race food, lawn games, and race recap banter around the fire.</p>
+    <p>Race hard, look out for one another, and we will see you at the starting line!</p>
+    <p class="signoff">Isaac Accola<br>Race Director, Island Lake Triathlon</p>
+  </section>
+
 </main>
 
 <footer>
@@ -456,7 +452,8 @@
       'tab-home': document.getElementById('panel-home'),
       'tab-swim': document.getElementById('panel-swim'),
       'tab-bike': document.getElementById('panel-bike'),
-      'tab-run': document.getElementById('panel-run')
+      'tab-run': document.getElementById('panel-run'),
+      'tab-letter': document.getElementById('panel-letter')
     };
     tabs.forEach(function (btn) {
       btn.addEventListener('click', function () {
