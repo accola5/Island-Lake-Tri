@@ -169,6 +169,21 @@
   }
   @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
 
+  h1, h2, h3, p, li, td, .wordmark { overflow-wrap: break-word; word-break: break-word; }
+  .stat .num span { margin-left: 3px; font-weight: 500; }
+
+  @media (max-width: 480px) {
+    .topbar-inner { padding: 18px 16px 14px; }
+    main { padding: 28px 16px 60px; }
+    .hero { gap: 14px; }
+    .hero svg { max-width: 320px; }
+    .hero-meta { gap: 8px 16px; font-size: 0.88rem; }
+    .card { padding: 16px 16px; }
+    .stat-row { gap: 18px; }
+    .tab-btn { padding: 12px 14px; font-size: 0.92rem; }
+    table.sched td:first-child { width: 74px; padding-right: 10px; }
+  }
+
   table.sched { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
   table.sched td { padding: 7px 0; border-bottom: 1px dashed var(--panel-border); vertical-align: top; }
   table.sched td:first-child { font-family: var(--font-display); font-weight: 600; white-space: nowrap; padding-right: 16px; width: 90px; }
@@ -179,6 +194,67 @@
   :root[data-theme="dark"] .stat .num,
   @media (prefers-color-scheme: dark) { }
   .stat .lbl { font-size: 0.82rem; opacity: 0.75; }
+
+  .save-date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--pine);
+    color: var(--birch-hi);
+    border-radius: 4px;
+    padding: 14px 20px;
+    margin-bottom: 28px;
+    font-size: 0.98rem;
+  }
+  .save-date-tag {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    background: var(--blaze);
+    color: var(--birch-hi);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+
+  .course-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .course-notes li {
+    padding: 12px 14px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-left: 4px solid var(--lake);
+    border-radius: 3px;
+  }
+  .course-notes li.warn { border-left-color: var(--blaze); }
+  .course-notes .ico {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--lake);
+    margin-bottom: 3px;
+  }
+  .course-notes li.warn .ico { color: var(--blaze); }
+
+  .letter {
+    margin-top: 44px;
+    padding-top: 36px;
+    border-top: 2px solid var(--panel-border);
+  }
+  .letter .signoff {
+    margin-top: 28px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+  .letter h3 {
+    margin-top: 1.6em;
+    font-size: 1.15rem;
+  }
 
   .embed-frame {
     border: 1px solid var(--panel-border);
@@ -235,54 +311,98 @@
         <circle cx="240" cy="34" r="16" fill="var(--blaze)"/>
       </svg>
       <div>
-        <h1>Six lakes, one shoreline trail,<br>and a start line at sunrise.</h1>
-        <p>A sprint-distance triathlon on the clear waters of Island Lake, deep in the Northwoods pines near Barnes, Wisconsin. Point-to-point swim, rolling forest-road bike leg, and a shaded singletrack run to the finish.</p>
+        <h1>The Only Island Triathlon in the World:<br>Deep in the Northwoods of Wisconsin</h1>
+        <p>A sprint-distance triathlon on the clear waters of Island Lake, deep in the Northwoods pines near Barnes, Wisconsin. Point-to-point swim, rolling forest-road bike leg, and a shaded run around the historically famous Island Lake.</p>
       </div>
       <div class="hero-meta">
         <div><b>Sat, Sept 26, 2026</b></div>
-        <div><b>Wave start 8:00 AM</b></div>
-        <div><b>Island Lake County Park</b> — Barnes, WI</div>
+        <div><b>Island Lake Lodge</b> — Barnes, WI</div>
       </div>
+    </div>
+
+    <div class="save-date">
+      <span class="save-date-tag">Save the Date</span>
+      The 2nd Annual Island Lake Triathlon returns <b>September 18, 2027</b>.
     </div>
 
     <div class="grid-two">
       <div class="card">
         <h2>Race day distances</h2>
         <div class="stat-row">
-          <div class="stat"><div class="num">0.5<span style="font-size:1rem">mi</span></div><div class="lbl">Swim</div></div>
-          <div class="stat"><div class="num">15<span style="font-size:1rem">mi</span></div><div class="lbl">Bike</div></div>
-          <div class="stat"><div class="num">3.1<span style="font-size:1rem">mi</span></div><div class="lbl">Run</div></div>
+          <div class="stat"><div class="num">.25<span style="font-size:1rem">mi</span></div><div class="lbl">Swim</div></div>
+          <div class="stat"><div class="num">5.5<span style="font-size:1rem">mi</span></div><div class="lbl">Bike</div></div>
+          <div class="stat"><div class="num">1.7<span style="font-size:1rem">mi</span></div><div class="lbl">Run</div></div>
         </div>
       </div>
       <div class="card">
         <h2>Schedule</h2>
         <table class="sched">
-          <tr><td>6:15 AM</td><td>Transition area opens, body marking</td></tr>
-          <tr><td>7:30 AM</td><td>Pre-race briefing at the beach</td></tr>
-          <tr><td>8:00 AM</td><td>Wave 1 start — swim leg begins</td></tr>
-          <tr><td>~10:30 AM</td><td>Awards at the pavilion</td></tr>
+          <tr><td>9:00 AM</td><td>Transition area opens, body markings</td></tr>
+          <tr><td>9:30 AM</td><td>Pre-race briefing</td></tr>
+          <tr><td>10:00 AM</td><td>Swim leg start</td></tr>
+          <tr><td>2:00 PM</td><td>Lunch &amp; awards at the beach</td></tr>
         </table>
       </div>
     </div>
 
     <div class="card">
       <h2>Getting there &amp; packet pickup</h2>
-      <p>Island Lake County Park sits just off County Highway D, a few minutes from downtown Barnes. Packet pickup is available Friday evening at the park pavilion and again race-morning starting at 6:15 AM. Parking is on the grass field north of the boat landing — follow the marked signs in from the entrance road.</p>
+      <p>Island Lake Lodge is located at 1995 Island Lake Lodge, a few minutes away from downtown Barnes, WI. Packet pickup is available Friday night. The Lodge itself is completely full, but campsites are available on a first-come, first-served basis. Parking is available all weekend at the Lodge.</p>
+    </div>
+
+    <div class="grid-two">
+      <div class="card">
+        <h2>Fuel on course</h2>
+        <p>Water and Tailwind Naked-flavor nutrition will be available in the transition area.</p>
+      </div>
+      <div class="card">
+        <h2>Post-race festivities</h2>
+        <p>The sauna will be fired up all afternoon for post-race recovery — come sweat out the last of it with fellow racers.</p>
+      </div>
+    </div>
+
+    <div class="letter">
+      <h2>Letter from the Race Director</h2>
+      <p>Welcome to the inaugural Island Lake Triathlon!</p>
+      <p>Whether you are here to claim cabin bragging rights, chase a segment crown, or simply enjoy a morning of sweat and lake air, we could not be more thrilled to kick off this weekend together. The course is set, the water is waiting, and the competition is shaping up to be legendary.</p>
+
+      <h3>The Contenders: An Absolutely Cracked Field</h3>
+      <p>Our inaugural starting line features a little bit of everything: seasoned endurance royalty, marathon tune-ups, and wild cards with mysterious training regimens.</p>
+      <p><b>The Veteran Frontrunners:</b> Josh Overturf leads the pack into the water, riding high on a recent PR at Ironman 70.3 Madison. Keep your eyes peeled for four Twin Cities Marathon hopefuls tuning their legs for next weekend.</p>
+      <p><b>The Dark Horses and Strategists:</b> Max Tweedale enters following an injury-riddled training block and an alleged all-time low VO2 max. Despite a respectable 5th place at the Trail Loppet Half, rumors confirm Max is saving his legs to contest the coveted Accola Loop segment rather than the overall podium. Meanwhile, newcomers Chris and Stuart arrive looking to turn heads and make an immediate statement.</p>
+      <p><b>The Women's Field:</b> Bridget Greiber, multi-70.3 Ironman extraordinaire, steps onto the dock as the heavy favorite. Ready to hunt her down are Dexcom Warriors Alison Accola and Emily Gruen, who plan to push the pace from gun to tape as they prepare for the upcoming winter cross-country ski season.</p>
+      <p><b>The Mystery Duo:</b> The Coquyt couple represents the true wild card of the weekend. Nobody has spotted their workouts as they are "Strava Silent," though whispers claim they spent the entire summer hammering two-a-day sessions on the steep grades of Afton Alps.</p>
+      <p><b>The Kids Triathlon:</b> Looking to steal the spotlight, Cal and Rosie are locked in an absolute barnburner of a head-to-head race. Expect fireworks from start to finish.</p>
+
+      <h3>Course &amp; Safety Notes</h3>
+      <p>While bragging rights are permanent, safety remains priority number one:</p>
+      <p><b>Swim:</b> Floatation aids are always welcome if needed. No one wins the race on the swim, so be careful.</p>
+      <p><b>Bike:</b> Helmets are strictly mandatory before your bike leaves the rack. Ride defensively, yield to oncoming traffic, and take corners with respect — there is loose gravel.</p>
+      <p><b>Run:</b> Stay hydrated, and give a loud cheer whenever you pass another competitor.</p>
+
+      <h3>A Huge Thank You to Our Volunteers</h3>
+      <p>A race like this cannot happen without our incredible volunteer crew. Thank you to Alison Accola for leading our volunteer crew and making sure everything was ready for the weekend. When you pass a volunteer on the course, be sure to offer a high five and a thank you!</p>
+
+      <h3>Post-Race Festivities</h3>
+      <p>Remember: across all divisions, the main objective of this weekend is having fun and making memories with great friends.</p>
+      <p>Immediately following the podium ceremony, the cabin kitchen and grill will be open and there will be a lasagna dinner celebration. Stick around for cold drinks, post-race food, lawn games, and race recap banter around the fire.</p>
+      <p>Race hard, look out for one another, and we will see you at the starting line!</p>
+      <p class="signoff">Isaac Accola<br>Race Director, Island Lake Triathlon</p>
     </div>
   </section>
 
   <!-- SWIM -->
   <section class="panel" id="panel-swim" role="tabpanel" aria-labelledby="tab-swim" hidden>
     <h1>Swim</h1>
-    <p>A counter-clockwise loop off the main beach, hugging the shoreline for sighting. Wetsuits are welcome — Island Lake typically runs cool through late September. Kayak support is stationed every 100 meters.</p>
-    <div class="card">
-      <h2>Course notes</h2>
-      <table class="sched">
-        <tr><td>Entry</td><td>Beach start, in-water wave deployment</td></tr>
-        <tr><td>Sighting</td><td>Orange buoys at each turn, yellow on the final stretch</td></tr>
-        <tr><td>Exit</td><td>Boat landing ramp, carpeted for bare feet</td></tr>
-      </table>
-    </div>
+    <p>Point-to-point across the water, starting at the Potawatomi Association Beach on the Island and finishing at the Island Lake Lodge Beach.</p>
+    <ul class="course-notes">
+      <li><span class="ico">Start</span> The swim begins at the Potawatomi Association Beach on the Island — plenty of parking there, so warm up with a walk or a short drive over.</li>
+      <li><span class="ico">Finish</span> Point-to-point course, ending at the Island Lake Lodge Beach.</li>
+      <li class="warn"><span class="ico">Required</span> Swim caps are required for all racers.</li>
+      <li><span class="ico">Support</span> Kayak support will be on the water the whole way across.</li>
+      <li><span class="ico">Option</span> Not feeling the swim? A kayak, stand-up paddle board, or canoe is allowed instead — a time penalty will be assessed.</li>
+      <li><span class="ico">T1</span> After exiting the water, run up the hill to the driveway to reach the bike transition area.</li>
+    </ul>
     <div class="embed-frame">
       <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537510426088810534" data-style="standard" data-map-hash="15.15/46.388255/-91.529815" data-from-embed="true" data-token="5svA8pxR9bH3mezYWWza8TOjkhEklorkX5z8pkwlzVo"></div>
       <script src="https://strava-embeds.com/embed.js"></script>
@@ -292,15 +412,15 @@
   <!-- BIKE -->
   <section class="panel" id="panel-bike" role="tabpanel" aria-labelledby="tab-bike" hidden>
     <h1>Bike</h1>
-    <p>Rolling out from transition onto quiet forest-service roads, this leg winds through pine stands with a couple of short rises before looping back along the lake road. Roads are closed to through-traffic but not fully closed to residents — ride predictably.</p>
-    <div class="card">
-      <h2>Course notes</h2>
-      <table class="sched">
-        <tr><td>Surface</td><td>Paved county road, one short gravel connector</td></tr>
-        <tr><td>Aid</td><td>Water stop near the halfway turnaround</td></tr>
-        <tr><td>Caution</td><td>Descent into the second curve — marshals posted</td></tr>
-      </table>
-    </div>
+    <p>Two clockwise loops out from the Lodge and back — watch the road markings, and know the map before you clip in.</p>
+    <ul class="course-notes">
+      <li><span class="ico">Course</span> Two clockwise loops, starting and finishing at the Lodge.</li>
+      <li><span class="ico">Markings</span> Course markings will be on the road to help with navigation, but please review the map beforehand.</li>
+      <li class="warn"><span class="ico">Required</span> Bike helmets are required for the entire ride.</li>
+      <li class="warn"><span class="ico">Off course</span> If you find yourself on an unpaved road, you've gone the wrong way — turn back.</li>
+      <li><span class="ico">T1 exit</span> Exit the driveway on the <b>left (west)</b> side onto the course.</li>
+      <li><span class="ico">T2 entry</span> Enter the bike-to-run transition area on the <b>right (east)</b> side.</li>
+    </ul>
     <div class="embed-frame">
       <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537509822030667814" data-style="standard" data-map-hash="12.81/46.38282/-91.53085" data-from-embed="true" data-token="wlJaaE48tSz_Baoj8_7kdJ69kM5NNZFLB4Z7CvIuF0U"></div>
       <script src="https://strava-embeds.com/embed.js"></script>
@@ -310,15 +430,13 @@
   <!-- RUN -->
   <section class="panel" id="panel-run" role="tabpanel" aria-labelledby="tab-run" hidden>
     <h1>Run</h1>
-    <p>Out of transition and onto shaded park trails before a lakeside out-and-back to the finish chute at the pavilion. Mostly packed dirt with a short paved stretch near the start.</p>
-    <div class="card">
-      <h2>Course notes</h2>
-      <table class="sched">
-        <tr><td>Surface</td><td>Packed singletrack and gravel park road</td></tr>
-        <tr><td>Aid</td><td>Water and electrolyte stop at the turnaround</td></tr>
-        <tr><td>Finish</td><td>Grass chute into the pavilion, timing mats at the line</td></tr>
-      </table>
-    </div>
+    <p>One clockwise loop all the way around Island Lake. Short on paper — but don't let that fool you.</p>
+    <ul class="course-notes">
+      <li><span class="ico">Course</span> A single loop around Island Lake, run clockwise.</li>
+      <li class="warn"><span class="ico">Heads up</span> Don't be fooled by the short distance — the hills on this loop are serious.</li>
+      <li><span class="ico">Exit</span> Exit the driveway on the <b>left (west)</b> side onto the course.</li>
+      <li><span class="ico">Finish</span> Sprint to the finish line to qualify for the coveted <b>Accola Loop</b> Strava segment.</li>
+    </ul>
     <div class="embed-frame">
       <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537509695958964172" data-style="standard" data-map-hash="13.67/46.38635/-91.53029" data-from-embed="true" data-token="y4OoSs36OH9FJOoQ3QAI2IV7YMqilS1elqt3da4sRNk"></div>
       <script src="https://strava-embeds.com/embed.js"></script>
