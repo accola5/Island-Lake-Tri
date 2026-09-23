@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Island Lake Triathlon — Barnes, WI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pine-dark: #16332A;
+    --pine: #234A3A;
+    --lake: #2E6B72;
+    --birch: #EFE6D3;
+    --birch-hi: #FBF7EC;
+    --bark: #3A2C20;
+    --blaze: #C8672B;
+    --blaze-hi: #DE7E3E;
+    --bg: var(--birch);
+    --bg-hi: var(--birch-hi);
+    --ink: var(--bark);
+    --panel: #FFFFFF;
+    --panel-border: rgba(58,44,32,0.14);
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Work Sans", -apple-system, "Segoe UI", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: var(--pine-dark);
+      --bg-hi: var(--pine);
+      --ink: var(--birch-hi);
+      --panel: #1E3F33;
+      --panel-border: rgba(239,230,211,0.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--pine-dark);
+    --bg-hi: var(--pine);
+    --ink: var(--birch-hi);
+    --panel: #1E3F33;
+    --panel-border: rgba(239,230,211,0.16);
+  }
+
+  body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.55;
+  }
+
+  a { color: inherit; }
+
+  .topbar {
+    padding: env(safe-area-inset-top, 0px) 0 0;
+    background: var(--pine-dark);
+    color: var(--birch-hi);
+  }
+  .topbar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 22px 24px 18px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .amp { color: var(--blaze-hi); font-style: italic; font-weight: 400; }
+  .place-line {
+    margin-top: 4px;
+    font-size: 0.95rem;
+    color: #CFE0D3;
+  }
+
+  nav.tabs {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--pine-dark);
+    border-bottom: 3px solid var(--blaze);
+  }
+  .tabs-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    flex: 1 0 auto;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: #B9CEC0;
+    padding: 14px 18px;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--birch-hi); }
+  .tab-btn[aria-selected="true"] {
+    color: var(--birch-hi);
+  }
+  .tab-btn[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    left: 12px; right: 12px; bottom: 0;
+    height: 3px;
+    background: var(--blaze);
+  }
+  .tab-btn:focus-visible { outline: 2px solid var(--blaze-hi); outline-offset: -2px; }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; animation: rise 0.35s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .panel.active { animation: none; } }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0 0 0.4em; color: var(--ink); }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.08; }
+  h2 { font-size: clamp(1.4rem, 3.5vw, 1.8rem); }
+  p { max-width: 62ch; }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--panel-border);
+    margin-bottom: 32px;
+  }
+  .hero svg { width: 100%; height: auto; max-width: 480px; }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+  .hero-meta div { display: flex; align-items: baseline; gap: 6px; }
+  .hero-meta b { font-family: var(--font-display); font-size: 1.05rem; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+  .grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 620px) { .grid-two { grid-template-columns: 1fr; } }
+
+  table.sched { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  table.sched td { padding: 7px 0; border-bottom: 1px dashed var(--panel-border); vertical-align: top; }
+  table.sched td:first-child { font-family: var(--font-display); font-weight: 600; white-space: nowrap; padding-right: 16px; width: 90px; }
+
+  .stat-row { display: flex; flex-wrap: wrap; gap: 26px; margin: 6px 0 0; }
+  .stat { min-width: 90px; }
+  .stat .num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 600; color: var(--lake); }
+  :root[data-theme="dark"] .stat .num,
+  @media (prefers-color-scheme: dark) { }
+  .stat .lbl { font-size: 0.82rem; opacity: 0.75; }
+
+  .embed-frame {
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 4px;
+    background: var(--panel);
+    overflow-x: auto;
+  }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  .waves { display: block; width: 100%; height: 14px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="wordmark">Island Lake <span class="amp">Triathlon</span></div>
+    <div class="place-line">Barnes, Wisconsin · Saturday, September 26, 2026</div>
+  </div>
+</div>
+
+<nav class="tabs" role="tablist" aria-label="Race sections">
+  <div class="tabs-inner">
+    <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">Home</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-swim" id="tab-swim">Swim</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-bike" id="tab-bike">Bike</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-run" id="tab-run">Run</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+    <div class="hero">
+      <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of pine trees along a lake shoreline">
+        <rect x="0" y="0" width="480" height="160" fill="none"/>
+        <path d="M0,120 C60,108 110,128 180,116 C260,102 320,124 480,110 L480,160 L0,160 Z" fill="var(--lake)" opacity="0.85"/>
+        <path d="M0,132 C70,122 140,138 220,128 C300,120 360,136 480,126 L480,160 L0,160 Z" fill="var(--lake)" opacity="0.55"/>
+        <g fill="var(--pine)">
+          <path d="M60,120 L78,120 L69,96 L82,96 L70,74 L82,74 L69,52 L56,74 L68,74 L56,96 L69,96 Z"/>
+          <path d="M120,120 L146,120 L132,88 L150,88 L131,58 L149,58 L131,30 L113,58 L131,58 L112,88 L130,88 Z"/>
+          <path d="M340,120 L360,120 L349,94 L363,94 L350,70 L362,70 L349,46 L336,70 L348,70 L335,94 L349,94 Z"/>
+          <path d="M400,120 L424,120 L410,90 L426,90 L409,62 L425,62 L409,36 L392,62 L408,62 L391,90 L407,90 Z"/>
+        </g>
+        <circle cx="240" cy="34" r="16" fill="var(--blaze)"/>
+      </svg>
+      <div>
+        <h1>Six lakes, one shoreline trail,<br>and a start line at sunrise.</h1>
+        <p>A sprint-distance triathlon on the clear waters of Island Lake, deep in the Northwoods pines near Barnes, Wisconsin. Point-to-point swim, rolling forest-road bike leg, and a shaded singletrack run to the finish.</p>
+      </div>
+      <div class="hero-meta">
+        <div><b>Sat, Sept 26, 2026</b></div>
+        <div><b>Wave start 8:00 AM</b></div>
+        <div><b>Island Lake County Park</b> — Barnes, WI</div>
+      </div>
+    </div>
+
+    <div class="grid-two">
+      <div class="card">
+        <h2>Race day distances</h2>
+        <div class="stat-row">
+          <div class="stat"><div class="num">0.5<span style="font-size:1rem">mi</span></div><div class="lbl">Swim</div></div>
+          <div class="stat"><div class="num">15<span style="font-size:1rem">mi</span></div><div class="lbl">Bike</div></div>
+          <div class="stat"><div class="num">3.1<span style="font-size:1rem">mi</span></div><div class="lbl">Run</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Schedule</h2>
+        <table class="sched">
+          <tr><td>6:15 AM</td><td>Transition area opens, body marking</td></tr>
+          <tr><td>7:30 AM</td><td>Pre-race briefing at the beach</td></tr>
+          <tr><td>8:00 AM</td><td>Wave 1 start — swim leg begins</td></tr>
+          <tr><td>~10:30 AM</td><td>Awards at the pavilion</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Getting there &amp; packet pickup</h2>
+      <p>Island Lake County Park sits just off County Highway D, a few minutes from downtown Barnes. Packet pickup is available Friday evening at the park pavilion and again race-morning starting at 6:15 AM. Parking is on the grass field north of the boat landing — follow the marked signs in from the entrance road.</p>
+    </div>
+  </section>
+
+  <!-- SWIM -->
+  <section class="panel" id="panel-swim" role="tabpanel" aria-labelledby="tab-swim" hidden>
+    <h1>Swim</h1>
+    <p>A counter-clockwise loop off the main beach, hugging the shoreline for sighting. Wetsuits are welcome — Island Lake typically runs cool through late September. Kayak support is stationed every 100 meters.</p>
+    <div class="card">
+      <h2>Course notes</h2>
+      <table class="sched">
+        <tr><td>Entry</td><td>Beach start, in-water wave deployment</td></tr>
+        <tr><td>Sighting</td><td>Orange buoys at each turn, yellow on the final stretch</td></tr>
+        <tr><td>Exit</td><td>Boat landing ramp, carpeted for bare feet</td></tr>
+      </table>
+    </div>
+    <div class="embed-frame">
+      <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537510426088810534" data-style="standard" data-map-hash="15.15/46.388255/-91.529815" data-from-embed="true" data-token="5svA8pxR9bH3mezYWWza8TOjkhEklorkX5z8pkwlzVo"></div>
+      <script src="https://strava-embeds.com/embed.js"></script>
+    </div>
+  </section>
+
+  <!-- BIKE -->
+  <section class="panel" id="panel-bike" role="tabpanel" aria-labelledby="tab-bike" hidden>
+    <h1>Bike</h1>
+    <p>Rolling out from transition onto quiet forest-service roads, this leg winds through pine stands with a couple of short rises before looping back along the lake road. Roads are closed to through-traffic but not fully closed to residents — ride predictably.</p>
+    <div class="card">
+      <h2>Course notes</h2>
+      <table class="sched">
+        <tr><td>Surface</td><td>Paved county road, one short gravel connector</td></tr>
+        <tr><td>Aid</td><td>Water stop near the halfway turnaround</td></tr>
+        <tr><td>Caution</td><td>Descent into the second curve — marshals posted</td></tr>
+      </table>
+    </div>
+    <div class="embed-frame">
+      <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537509822030667814" data-style="standard" data-map-hash="12.81/46.38282/-91.53085" data-from-embed="true" data-token="wlJaaE48tSz_Baoj8_7kdJ69kM5NNZFLB4Z7CvIuF0U"></div>
+      <script src="https://strava-embeds.com/embed.js"></script>
+    </div>
+  </section>
+
+  <!-- RUN -->
+  <section class="panel" id="panel-run" role="tabpanel" aria-labelledby="tab-run" hidden>
+    <h1>Run</h1>
+    <p>Out of transition and onto shaded park trails before a lakeside out-and-back to the finish chute at the pavilion. Mostly packed dirt with a short paved stretch near the start.</p>
+    <div class="card">
+      <h2>Course notes</h2>
+      <table class="sched">
+        <tr><td>Surface</td><td>Packed singletrack and gravel park road</td></tr>
+        <tr><td>Aid</td><td>Water and electrolyte stop at the turnaround</td></tr>
+        <tr><td>Finish</td><td>Grass chute into the pavilion, timing mats at the line</td></tr>
+      </table>
+    </div>
+    <div class="embed-frame">
+      <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3537509695958964172" data-style="standard" data-map-hash="13.67/46.38635/-91.53029" data-from-embed="true" data-token="y4OoSs36OH9FJOoQ3QAI2IV7YMqilS1elqt3da4sRNk"></div>
+      <script src="https://strava-embeds.com/embed.js"></script>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Island Lake Triathlon · Barnes, Wisconsin
+</footer>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.tab-btn');
+    var panels = {
+      'tab-home': document.getElementById('panel-home'),
+      'tab-swim': document.getElementById('panel-swim'),
+      'tab-bike': document.getElementById('panel-bike'),
+      'tab-run': document.getElementById('panel-run')
+    };
+    tabs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabs.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
+        Object.values(panels).forEach(function (p) { p.classList.remove('active'); p.hidden = true; });
+        btn.setAttribute('aria-selected', 'true');
+        var panel = panels[btn.id];
+        panel.hidden = false;
+        panel.classList.add('active');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
